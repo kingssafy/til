@@ -25,10 +25,15 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 "syntax checker
 Plug 'scrooloose/syntastic'
-"Color Scheme
+"Color Scheme colorscheme mystictutor
 Plug 'caksoylar/vim-mysticaltutor'
+"colorscheme Distinguished
+Plug 'Lokaltog/vim-distinguished'
 "Python autocomplete
-Plug 'davidhalter/jedi-vim'
+"Plug 'davidhalter/jedi-vim'
+"YouCompeleteMe
+Plug 'Valloric/YouCompleteMe'
+
 "autopairs
 Plug 'jiangmiao/auto-pairs'
 "NERDTree
@@ -39,7 +44,8 @@ Plug 'scrooloose/nerdtree'
 " Initialize plugin system
 call plug#end()
 "apply colorscheme
-colorscheme mysticaltutor
+"colorscheme mysticaltutor
+colorscheme distinguished
 "followings are syntastics recommended settings.
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
