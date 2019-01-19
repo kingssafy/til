@@ -1,10 +1,10 @@
-a = [16, 4, 10, 14, 7, 9, 3, 2, 8, 1]
+a = [16, 4, 10, 14, 7, 9, 3, 2, 8, 1, 4, 10, 20, 33, 2, 1, 99999, 4, 16,52, 85, 42,12, 34, 21, 9, 43, 88]
 #BUILD-MAX-HEAP(a)
 
 def left(sequence, i, heap_size):
     """Returns you left child"""
     if heap_size >= 2 * i + 2: # for length we need index+1 length
-                                   # because off-by-zero property of list
+                                   # because off-by-zero property of list data-type
         return 2*i + 1 # return sequence[2*i + 1] #abbriviation of 2(i+1)-1
     return None
 
