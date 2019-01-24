@@ -1,24 +1,24 @@
-#TODAY I LEARNED
+# TODAY I LEARNED
 
 
-##Categories
+## Categories
 -
 -
 
 ---
 
-##Python
+## Python
 
 
-##Algorithms
+## [Algorithms](algorithms/README.md)
 
-##Bootstrap
-
-
-##HTML
+## Bootstrap
 
 
-##CSS
+## HTML
 
 
-##JavaScript
+## CSS
+
+
+## JavaScript
