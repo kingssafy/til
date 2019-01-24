@@ -7,18 +7,18 @@
 
 ---
 
-## Python
+## [Python](python)
 
 
 ## [Algorithms](algorithms)
 
-## Bootstrap
+## [Bootstrap](bootstrap)
 
 
-## HTML
+## [HTML](HTML)
 
 
-## CSS
+## [CSS](CSS)
 
 
-## JavaScript
+## [JavaScript](JavaScript)
