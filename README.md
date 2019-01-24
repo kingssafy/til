@@ -10,7 +10,7 @@
 ## Python
 
 
-## [Algorithms](algorithms/README.md)
+## [Algorithms](algorithms)
 
 ## Bootstrap
 
