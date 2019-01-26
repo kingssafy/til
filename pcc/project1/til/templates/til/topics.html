@@ -1,0 +1,10 @@
+{% extends 'til/base.html' %}
+{% block content %}
+    <ul>
+        {% for topic in topics %}
+        <li><a href="{% url 'til:topic' topic.id %}">{{ topic }} </a></li>
+        {% empty %}
+        <li>no topic are added yet</li>
+        {% endfor %}
+    </ul>
+{% endblock content %}
