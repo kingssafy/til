@@ -1,4 +1,4 @@
-"""learning_log URL Configuration
+"""pizz URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.1/topics/http/urls/
@@ -14,20 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import include, path
-
-
-
-#Check the docs for include here.
-
-#What you've done is not an acceptable way of passing parameters to include. You could do:
-
-#url(r'^reviews/', include(('reviews.urls', 'reviews'), namespace='reviews')),
-
-
-
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(('learning_logs.urls', 'learning_logs'), namespace='learning_logs'))
+    path('', include(('pizzas.urls', 'pizzas'), namespace="pizzas"))
 ]
