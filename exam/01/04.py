@@ -6,7 +6,6 @@ def cipher(word, n):
     # 암호화된 문자열을 반환합니다.
     result = ""
     for character in word:
-
         #소문자로 구성된 알파벳을 받아올때 해당 아스키코드값에서
         #a의 아스키 코드 값을 빼서
         # {a:0, b:1,-,-,--, z:25} 이렇게 배정되게합니다
@@ -24,6 +23,6 @@ def cipher(word, n):
 
 # 아래의 코드는 수정하지마세요. 
 if __name__ == '__main__':
-    print(cipher('apple', 1))
+    print(cipher('apple', 26))
     print(cipher('apple', 27))
     print(cipher('zoo', 2))

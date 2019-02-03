@@ -31,7 +31,7 @@ class Rectangle():
         #정사각형이면 TRUe아니면 FALSE리턴
         x_length = self.p2.x - self.p1.x
         y_length = self.p1.y - self.p2.y
-        return True if x_length == y_length else False
+        return x_length == y_length
 
 
 

@@ -7,8 +7,7 @@ class Word():
     def add(self, eng, kor):
         #인자 영문,한글
         #영문key 한글value로 추가
-        adder = {eng:kor}
-        self.wordbook.update(adder)
+        self.wordbook[eng]=kor
         #return 없음
     def delete(self, eng):
         #인자 영문
