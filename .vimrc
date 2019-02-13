@@ -9,6 +9,7 @@ endif
 autocmd Filetype c,cpp  nnoremap <buffer> <F5> :update<Bar>execute '!make '.shellescape(expand('%:r'), 1)<CR>
 autocmd Filetype python nnoremap <buffer> <F5> :update<Bar>execute '!python '.shellescape(@%, 1)<CR>
 autocmd Filetype java   nnoremap <buffer> <F5> :update<Bar>execute '!javac '.shellescape(@%, 1)<CR>
+autocmd FileType javascript nnoremap <buffer> <F5> :update<Bar>execute '!node '.shellescape(@%, 1)<CR>
 "enable 256 color
 set t_Co=256
 syntax on
@@ -47,8 +48,8 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdtree'
 "Surround
 Plug 'tpope/vim-surround'
-
-
+"vim javascript
+Plug 'pangloss/vim-javascript'
 "Initialize plugin system
 call plug#end()
 "apply colorscheme
@@ -81,7 +82,7 @@ autocmd Filetype html setlocal ts=2 sw=2 expandtab
 autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
 "autocmd Filetype javascript setlocal ts=4 sw=4 sts=0 noexpandtab
 autocmd Filetype python setlocal ts=4 sw=4 expandtab
-autocmd FileType javascript setlocal ts=2 sw=2 expandtab
+autocmd FileType javascript setlocal ts=2 sw=2  expandtab
 
 
 filetype plugin indent on
@@ -116,6 +117,10 @@ map <c-b> :NERDTreeToggle<CR>
 "Delete ^g prefix
 let g:NERDTreeNodeDelimiter = "\u00a0"
 let NERDTreeQuitOnOpen = 1
+
+"pangloss/vim-javascript
+let g:javascript_plugin_flow = 1
+
 
 "YCM
 let g:ycm_autoclose_preview_window_after_completion = 0
