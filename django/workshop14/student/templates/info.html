@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block body %}
+<p>teacher</p>
+<p>edu junho</p>
+<ul>
+{% for student in students %}
+<li> {{student.name}} </li>
+{% endfor %}
+
+</ul>
+
+{% endblock body %}

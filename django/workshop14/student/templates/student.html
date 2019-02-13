@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block body %}
+{% for student in students %}
+{% if student.name == key %}
+<p>{{ student.name }}, {{ student.age }}</p>
+{% endif %}
+{% endfor %}
+{% endblock body %}

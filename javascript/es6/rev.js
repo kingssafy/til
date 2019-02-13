@@ -27,7 +27,7 @@ while(funds > 0 && funds < 100) {
     bets.heart = totalBet;
   } else {
     let remaining = totalBet;
-    do{
+    do {
       let bet = rand(1, remaining);
       bets[randFace()] += bet;
       remaining -= bet;
