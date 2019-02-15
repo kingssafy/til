@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+{% if not_found %}
+ERROR 404
+{% else %}
+INDEX!!!
+{% endif %}
+{% endblock title %}
+
+{% block body %}
+<div id="top"></div>
+<header class="w-auto text-center" style="height: 350px; background-image: url('{% static "detail/headerimage.jpeg" %}');">
+    <h1 class="{% if not_found %}text-danger{% else %}text-primary{% endif %}" style="position: relative; top: 50%;">
+        {% if not_found %} {{ not_found }} Not found </h1>
+    {% else %} HEADER {% endif %} 
+</header>
+
+
+<div style="height: 9999px;"></div>
+
+<footer class="fixed-bottom bg-warning px-2" style="height: 50px;">
+  <ul class="nav">
+    <li class="nav-item mr-auto"><a class="nav-link active" href="/"><h2>Eric</h2></a></li>
+    <li class="nav-item ml-auto"><a class="nav-link active" href="#top"><h2>TOP</h2></a></li>
+  </ul>
+</footer>
+{% endblock body%}

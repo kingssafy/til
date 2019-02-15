@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+MYPAGE!!!
+{% endblock title %}
+
+
+{% block body %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-3">
+      <div style="position: fixed;">
+        <div class="card" style="width: 18rem;">
+          <img src="{% static 'detail/doggy.jpg' %}" class="card-img-top rounded-circle" alt="doggycard">
+          <div class="card-body">
+            <h5 class="card-title">Name</h5>
+            <h6 class="card-subtitle mb-2 text-muted">ssafy@user.com</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+          <div class="card-body">
+            <a href="#" class="card-link">Logout</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="col-9 off-md-3">
+      <img src="{% static 'detail/doggy.jpg' %}" class="img-fluid" alt="Responsive image">
+
+      <img src="{% static 'detail/doggy.jpg' %}" class="img-fluid" alt="Responsive image">
+      <img src="{% static 'detail/doggy.jpg' %}" class="img-fluid" alt="Responsive image">
+      <img src="{% static 'detail/doggy.jpg' %}" class="img-fluid" alt="Responsive image">
+      <img src="{% static 'detail/doggy.jpg' %}" class="img-fluid" alt="Responsive image">
+
+    </div>
+  </div>
+  </div>
+{% endblock body %}

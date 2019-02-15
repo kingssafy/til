@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}
+QUESTION AND ANSWER
+{% endblock title %}
+
+{% block body %}
+<div class="container">
+  <form>
+    <div class="form-row">
+      <div class="form-group col-lg-6">
+        <label for="inputTitle">Title</label>
+        <input type="text" class="form-control" id="inputTitle" placeholder="put your title here">
+      </div>
+      <div class="form-group col-lg-6">
+        <label for="inputEmail">Email</label>
+        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputContent">Content</label>
+      <textarea id="inputContent" class="form-control" rows="5">CONTENT HERE</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">SUBMIT!</button>
+  </form>
+</div>
+{% endblock body %}
