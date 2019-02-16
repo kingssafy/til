@@ -1,12 +1,3 @@
-#ssafy django
-export WEATHERKEY="a9d8c409a6a251aac033882200631686"
-export NAVER_CLIENT_ID="t_wEZFtnX99YC6pkrJn6"
-export NAVER_CLIENT_SECRET="6LBMmQVbD6"
-
-alias ls='ls -al'
-alias turun='python /Users/inmak/Desktop/til/django/tutorial/mysite/manage.py runserver'
-alias prun='python /Users/inmak/Desktop/project05/manage.py runserver'
-
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
@@ -19,6 +10,10 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export CLICOLOR=1
+
+
+##temp
+alias ls='ls -al'
 
 #!/usr/bin/env bash
 

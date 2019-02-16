@@ -41,11 +41,13 @@ class Commuter5:                                # Propagate class type in result
     def __init__(self, val):
         self.val = val
     def __add__(self, other):
-        if isinstance(other, Commuter5):        # Type test to avoid object nesting
-            other = other.val
+        #if isinstance(other, Commuter5):        # Type test to avoid object nesting
+        #    other = other.val
+        print(self, 'add', other)
         return Commuter5(self.val + other)      # Else + result is another Commuter
     def __radd__(self, other):
-        return Commuter5(other + self.val)
+        print(self, 'radd', other)
+        return Commuter5(self.val + other)
     def __str__(self):
         return '<Commuter5: %s>' % self.val
 

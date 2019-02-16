@@ -1,0 +1,1 @@
+And nnow, for something ocmpletely implicit, but potentiall,y useful nonethless. In some applications, it's possible to minimize coding rewquiremnets for suer-defined iterables by combining the __iter__ method we're exploring here and 
