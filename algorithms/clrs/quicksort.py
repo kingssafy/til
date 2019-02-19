@@ -14,7 +14,7 @@ def partition(array, p, r): #possibly 0 or 1
     for j in range(p+1, r + 1):
         if array[j] <= keyvalue:
             i = i + 1
-            array[j], array[j] = array[i], array[j]
+            array[j], array[i] = array[i], array[j]
     array[i], array[p] = array[p], array[i]
     print(f"partitioned array {array}")
     print(f"current(i,j) {i,j}")

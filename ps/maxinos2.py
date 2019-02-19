@@ -64,17 +64,17 @@ def isconnectable(x, y, array, direction):
             if array[idx][y]:
                 return False
         return True
-
-def recurse(array, sequence):
-    global counter
-    directions = ["left", "right", "up", "down"]
+directions = ["left", "right", "up", "down"]
+def recurse(array, sequence, connects):
+    
+    last = sum(i.count(1) for i in array)
+    if connects+last < max(result) : return
     for x, y in sequence:
-        if array[x][y] == 3 : break
+        if array[x][y] == 3 : return
         for direction in directions:
             if isconnectable(x, y, array, direction):
                 fill(x, y, array, direction, True)
-                counter += 1
-                connects = counter
+                connects += 1
                 if connects >= max(result):
                     lines = sum(i.count(2) for i in array)
                     if connects in result:
@@ -82,11 +82,10 @@ def recurse(array, sequence):
                             result[connects] = lines
                     else:
                         result[connects] = lines
-                recurse(array, sequence)
+                recurse(array, sequence, connects)
                 fill(x, y, array, direction, False)
-                counter -= 1
-                
-        
+                connects -= 1
+            
         
 
 for tc in range(1, int(input()) + 1):
@@ -99,21 +98,14 @@ for tc in range(1, int(input()) + 1):
             arrayvalue = array[x][y]
             if arrayvalue == 1 and isalready(x,y,N):
                 array[x][y] == 3
-            elif arrayvalue == 1 and isonly(array,x,y):
-                fill(x,y, array, isonly(array,x,y), True)
             elif arrayvalue == 1 and (isconnectable(x, y, array, "left") or isconnectable(x, y, array, "right")
                                       or isconnectable(x, y, array, "up") or isconnectable(x, y, array, "down")):
                 sequence.append((x,y))
+            elif array[x][y] == 1:
+                array[x][y] == 9
     connects = sum(i.count(3) for i in array)
-    if connects >= max(result):
-        lines = sum(i.count(2) for i in array)
-        if connects in result:
-            if lines < result[connects]:
-                result[connects] = lines
-        else:
-            result[connects] = lines
     counter = connects
-    recurse(array, sequence)
+    recurse(array, sequence, connects)
     maxconnects = max(result)
     leastline = result[maxconnects]
     print(f"#{tc} {leastline}")

@@ -55,4 +55,3 @@ def linear_maximum_subarray(A):
     return (low_m, high_m, M)
 
 print(linear_maximum_subarray(A))
-
