@@ -17,7 +17,7 @@ EDIT A STUDENT
   </div>
   <div class="form-group">
     <label for="inputBirthday">Birthday</label>
-    <input type="date" class="form-control" id="inputBirthday" name="birthday" value="{{ student.birthday }}">
+    <input type="date" class="form-control" id="inputBirthday" name="birthday" value="{{ student.birthday|date:'Y-m-d' }}">
   </div>
   <div class="form-group">
     <label for="inputAge">Age</label>
