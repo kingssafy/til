@@ -12,6 +12,7 @@ def recurse(key):
         recurse(next)
 
 directions = [(1,0), (-1,0), (0,-1), (0, 1)]
+
 for tc in range(int(input())):
     n = int(input())
     mazes = [[int(char) for char in input()] for _ in range(n)]

@@ -1,0 +1,37 @@
+{% extends './base.html' %}
+{% block title %}
+INDEX
+{% endblock title %}
+{% block body %}
+STUDENTS INDEX
+<!-- List group -->
+<div class="row">
+    <div class="col-4">
+        <div class="list-group" id="myList" role="tablist">
+            {% for student in students %}
+            <a class="list-group-item list-group-item-action" data-toggle="list" href="#student{{ student.pk }}" role="tab">{{ student.name }}</a>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Tab panes -->
+    <div class="col-8">
+        <div class="tab-content">
+            {% for student in students %}
+            <div class="tab-pane" id="student{{ student.pk }}" role="tabpanel">
+                <h2>name: {{ student.name }}</h2>
+                <h2>age: {{ student.age }}</h2>
+                <h2>email: {{ student.email }}</h2>
+                <h2>birthday: {{ student.birthday }}</h2>
+                <div class="btn-group" role="group" aria-label="managestudents"> 
+                    <a href="/students/new/" class="btn btn-secondary btn-lg" role="button" >Add</a> 
+                    <a href="/students/{{ student.pk }}/edit/" class="btn btn-secondary btn-lg" role="button" >Edit</a> 
+                    <a href="/students/{{ student.pk }}/delete/" class="btn btn-secondary btn-lg" role="button" >Delete</a> 
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

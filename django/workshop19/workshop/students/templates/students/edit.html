@@ -1,0 +1,34 @@
+{% extends './base.html' %}
+
+{% block title %}
+EDIT A STUDENT
+{% endblock title %}
+{% block body %}
+<form action="/students/{{ student.id }}/update/" method="POST">
+  {% csrf_token %}
+  <div class="form-group">
+    <label for="inputName">Name</label>
+    <input type="text" class="form-control" id="inputName" aria-describedby="emailHelp" value="{{ student.name }}" name="name">
+    <small id="NameHelp" class="form-text text-muted">We'll never share your personal information.</small>
+  </div>
+  <div class="form-group">
+    <label for="inputEmail">email</label>
+    <input type="email" class="form-control" id="inputEmail" value="{{ student.email }}" name="email">
+  </div>
+  <div class="form-group">
+    <label for="inputBirthday">Birthday</label>
+    <input type="date" class="form-control" id="inputBirthday" name="birthday" value="{{ student.birthday }}">
+  </div>
+  <div class="form-group">
+    <label for="inputAge">Age</label>
+    <input type="number" class="form-control" id="inputAge" min="1" max="150" step="1" name="age" value="{{ student.age }}">
+  </div>
+  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+
+  <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+  <a href="/students/" class="btn btn-primary btn-lg">BACK</a>
+</form>
+{% endblock body %}

@@ -1,0 +1,36 @@
+N, L = map(int, input().split())
+array = [list(map(int, input().split())) for _ in range(N) ]
+rarray = [[array[x][y] for x in range(N)] for y in range(N)]
+
+success = 0
+for row in array:
+    now = row[0]
+    floor_count = 0
+    for step in row:
+        if step == now:
+            floor_count +=1
+        elif abs(step-now) == 1 and floor_count>=L:
+            floor_count = 1
+            now = step
+        else:
+            break
+
+    else:
+        success += 1
+
+for row in rarray:
+    now = row[0]
+    floor_count = 0
+    for step in row:
+        if step == now:
+            floor_count +=1
+        elif abs(step-now) == 1 and floor_count>=L:
+            floor_count = 1
+            now = step
+        else:
+            break
+
+    else:
+        success += 1
+print(success)
+
