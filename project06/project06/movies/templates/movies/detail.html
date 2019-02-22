@@ -1,0 +1,31 @@
+{% extends 'movies/base.html' %}
+{% block title %}{{ movie.title }} Info{% endblock title %}
+
+{% block body %}
+<div class="card text-center">
+    <div class="card-header">
+        Featured
+    </div>
+    <div class="card-body">
+        <img src="{{ movie.poster_url }}" class="img-thumbnail" alt="Responsive image">
+
+        <h5 class="card-title">{{ movie.title }}</h5>
+        <div class=container-fluid>
+            <p class="card-text">audience {{ movie.audience }}</p>
+            <p class="card-text">genre {{ movie.genre }}</p>
+            <p class="card-text">score {{ movie.score }}</p>
+            <p class="card-text">poster_url: {{ movie.poster_url }}</p>
+            <p class="card-text">description: {{ movie.description }}</p>
+        </div>
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <a href="/movies/" class="btn btn-secondary">LISTS</a>
+            <a href="#" class="btn btn-secondary disable">EDIT</a>
+            <a href="/movies/{{ movie.id }}/delete/" class="btn btn-secondary">DELETE</a>
+        </div>
+
+    </div>
+    <div class="card-footer text-muted">
+        2 days ago
+    </div>
+</div>
+{% endblock body %}

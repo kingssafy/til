@@ -1,0 +1,39 @@
+{% extends 'movies/base.html' %}
+{% block title %}INDEX{% endblock title %}
+
+
+{% block body %}
+<div class="container">
+    <div class="bd-example">
+        <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                {% for movie in movies %}
+                <li data-target="#carouselExampleCaptions" data-slide-to="{{ forloop.counter0 }}"{% if forloop.counter0 == 0 %} class="active"{% endif %}></li>
+                {% endfor movies %}
+            </ol>
+            <div class="carousel-inner">
+                {% for movie in movies %}
+                <div class="carousel-item {% if forloop.counter0 == 0 %}active{% endif %}">
+                    <img src="{{ movie.poster_url }}" class="d-block w-100" alt="{{ movie.title }}">
+                    <div class="carousel-caption d-none d-md-block">
+                        <a href="/movies/{{ movie.id }}/" class="btn btn-primary btn-lg">
+                        {{ movie.title }} <span class="badge badge-light">{{ movie.score }}</span>
+</a>
+
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+{% endblock body%}
