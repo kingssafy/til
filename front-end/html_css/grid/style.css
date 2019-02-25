@@ -1,0 +1,22 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  /*
+  grid-column-gap: 1em;
+  grid-row-gap: 1em;
+  */
+  grid-gap: 1em 2em; /* row-gap, column-gap */
+}
+
+
+
+.wrapper > div {
+  background:#eee;
+  /* background: #ffffff url("img_tree.png") no-repeat right top; */
+
+  padding: 1em;
+}
+
+.wrapper > div:nth-child(odd) {
+  background-color: #ddd;
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="css.css">
+<style>
+table {
+  width: 100%;
+  border-top: 1px solid #444444;
+  border-collapse: collapse;
+}
+
+th, td {
+  border-bottom: 1px solid #444444;
+  padding: 10px;
+}
+</style>
+    <title>CSS</title>
+  </head>
+  <body>
+    <h2>CSS Syntax</h2>
+    <p>A CSS rule-set consists of a selector and a declaration block:</p>
+    <img src="img/selector.gif" alt="selector">
+    <h3>CSS Comments</h3>
+    <p> CSS comment start with /* and ends with */. Comments can also span multiple lines</p>
+    <h2>CSS selectors</h2>
+    <p>CSS selectors</p>
+    <table>
+      <tr>
+        <th>Selector</th>
+        <th>Example</th>
+        <th>Example description</th>
+      </tr>
+      <tr>
+        <td>.class</td>
+        <td>.intro</td>
+        <td>Selects all elements with class="intro"</td>
+      </tr>
+      <tr>
+        <td>#id</td>
+        <td>#firstname</td>
+        <td>Selects the element with id="firstname"</td>
+      </tr>
+      <tr>
+        <td>*</td>
+        <td>*</td>
+        <td>Selects all elements</td>
+      </tr>
+      <tr>
+        <td>element</td>
+        <td>p</td>
+        <td>Selects all &lt;p&gt; elements</td>
+      </tr>
+      <tr>
+        <td>element, element</td>
+        <td>div, p</td>
+        <td>Selects all &lt;div&gt; elements and all &lt;p&gt; elements</td>
+      </tr>
+      <tr>
+        <td>element element</td>
+        <td>div p</td>
+        <td>Selects all &lt;p&gt; elements inside &lt;div&gt; element</td>
+      </tr>
+      <tr>
+        <td>element&gt;element</td>
+        <td>div &gt; p</td>
+        <td>Selects all &lt;p&gt; elements where the parent is a &lt;div&gt; element</td>
+      </tr>
+      <tr>
+        <td>element+element</td>
+        <td>div + p</td>
+        <td>Selects all &lt;p&gt; elements that are placed immediately after &lt;div&gt; elements</td>
+      </tr>
+      <tr>
+        <td>element1~element2</td>
+        <td>p ~ ul</td>
+        <td>Selects every &lt;ul&gt; element that are preceded by a &lt;p&gt; element</td>
+      </tr>
+
+      <tr>
+        <td>[attribute]</td>
+        <td>[target]</td>
+        <td>Selects all elements with a target attribute</td>
+      </tr>
+      <tr>
+        <td>[attribute=value]</td>
+        <td>[target=_blank]</td>
+        <td>Selects all elements with target="_blank"</td>
+      </tr>
+      <tr>
+        <td>[attribute~=value]</td>
+        <td>[title~=flower]</td>
+        <td>Selects all elements with a title attribute containing the word "flower". not "*flower*" just "flower"</td>
+      </tr>
+
+      <tr>
+        <td colspan="2" rowspan="2">---- w3school.com for more ----</td>
+      </tr>
+      <tr>
+        <td>end of table</td> 
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td>hi</td>
+      </tr>
+    </table>
+    <h2>Selector Types</h2> 
+    <p>The following list of selector types increase by specificity</p>
+    <ol>
+      <li>Type selectors(e.g., <code>h1</code>) and pseudo-elements(e.g., <code>::before</code>)</li>
+      <li>Class selectors (e.g., <code>.example</code>), attribute selectors(e.g., <code>[type="radio"]</code>) and pseudo-classes (e.g., <code>:hover</code>).</li>
+      <li>ID Selectors (e.g., <code>#example</code>)</li>
+    </ol>
+    <p>Universal selector, combinators and negation pseudo-class have no effect on specificity.</p>
+    <p>For more information, visit: <a href="https://specifishity.com">Here</a>
+    <p>inline styles added to an element (e.g., <code>style="font-weight: bold;"</code>) always overwrite any style in external style sheets, and thus can be thought of as having the highest specificity</p>
+  </body>
+</html>
