@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}INDEX{% endblock title %}
+    {% block body %}
+
+    <h1>INDEX</h1>
+    <a href="/boards/new/">[create one]</a>
+    <ul>
+      {% for article in full %}
+      {% if article.title == "admin" %}<li>notice</li>{% endif %}
+      <li>title: {{ article.title }}
+        <ul>
+          <li>content: {{ article.content }}</li>
+          <li>created_at:{{ article.created_at }}</li>
+          <li>updated_at: {{ article.updated_at }}</li>
+          <li><a href="/boards/{{article.pk}}/delete/">[delete]</a></li>
+        </ul>
+            {% empty %}
+            <li>There's no article added yet</li>
+          {% endfor %}
+    </ul>
+
+    {% endblock body %}

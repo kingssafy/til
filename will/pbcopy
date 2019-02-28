@@ -1,0 +1,25 @@
+import sys
+sys.stdin = open("n_root_input.txt")
+N = int(input())
+array = []*N
+def root(num):
+    nums = str(num)
+    temp = 0
+    for num in nums:
+        temp += int(num)
+
+    return str(temp)
+
+for _ in range(N):
+    num = input()
+    on = num
+    max = -1
+    maxs = 1000000000
+
+    while int(num) >9:
+        num = root(num)
+    if int(num) > max and maxs > int(on):
+        max = num
+        maxs = on
+print(maxs)
+        

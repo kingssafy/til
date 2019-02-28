@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}new{% endblock title %}
+{% block body %}
+<form action="/boards/create/" method="POST">
+  {% csrf_token %}
+  <label for="title">title</label>
+  <input id="title"type="text" name="title" placeholder="put title here" autofocus required/>
+  <br>
+  <label for="content">contents</label>
+  <textarea name="content" id="content">here~!</textarea>
+  <br>
+  <input type="submit" value="create!">
+</form>
+{% endblock body %}
