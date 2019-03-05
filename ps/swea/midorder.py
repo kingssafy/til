@@ -10,4 +10,3 @@ for tc in range(1, 11):
     tree = [0]
     for _ in range(N): tree.append(input().split()[1])
     inorder(tree, 1);print()
-    
