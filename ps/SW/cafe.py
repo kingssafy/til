@@ -1,6 +1,5 @@
 import sys
 sys.stdin = open("cafe_input.txt")
-sys.stdout = open("cafe_output.txt", "w")
 
 
 #directions = {
@@ -31,9 +30,9 @@ def cafe(grid, start):
         next = []
         for complex in frontier:
             now = complex[0]
-            ate = complex[1].copy()
             di = complex[2]
             for idx, direction in enumerate(directions[di:di+2]):
+                ate = complex[1].copy() #copy T^T
                 jump = getnext(now, direction) 
                 if isvalid(grid, jump) and isnodouble(grid, jump, ate):
                     ate.append(grid[jump[0]][jump[1]])
@@ -48,10 +47,11 @@ for tc in range(int(input())):
     N = int(input()) # length of Row and Column wise
     grid = [list(map(int, input().split())) for _ in range(N)]
     maximum = 0
-    print(*grid, sep="\n")
 
     for r in range(N):
         for c in range(N):
             if isvalid(grid, (r,c)):
                 cafe(grid, (r,c))
-    print(maximum)
+    if not maximum: maximum=-1
+    print("#{} {}".format(tc+1, maximum))
+
