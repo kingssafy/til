@@ -1,5 +1,5 @@
 import sys
-import itertools
+import copy
 sys.stdin = open("bricks_input.txt")
 
 up = (-1, 0)
@@ -41,51 +41,49 @@ def cleanup(grid):
                         grid[r][c], grid[j][c] = grid[j][c], grid[r][c]
                         break
 
-def recurse(grid, depth=0):
-    global result
-    if depth == N:
-        temp = calculate(grid)
-        if temp < result:
-            result = temp
-    else:
-        for w in range(W):
-            newgrid = [row[:] for row in grid]
-            cleanup(newgrid)
-            hammer(newgrid, getstartpoint(newgrid, w))
-            cleanup(newgrid)
-            recurse(newgrid, depth+1)
-            del newgrid
-
-
-
 def calculate(grid):
     result = 0
     for r in range(H):
         for c in range(W):
-            if grid[r][c] >0:
+            if grid[r][c]:
                 result += 1
     return result
 
 def getstartpoint(grid, w):
     center = (H-1, w)
-    value = grid[H-1][w]
-    if not value:
-        return (H-1, w)
+    for idx in range(H-1,-1,-1):
+        if not grid[idx][w]:
+            break
+    result = (idx+1, w)
+    if ingrid(result, grid):
+        return result
     else:
-        for j in range(H-1, -1, -1):
-            if grid[j][w]:
-                pass
-            else:
-                return (j+1, w)
-        else:
-            return (0, w)
-    
+        return (idx, w)
+
+
+def recurse(grid, depth=0):
+    global result
+    if depth ==N-1:
+        temp = calculate(grid)
+        if temp < result:
+            result = temp
+    else:
+        newgrid = [[0 for _ in range(W)] for _ in range(H)] 
+        for x  in range(H):
+            for y in range(W):
+                newgrid[x][y] = grid[x][y]            
+        for w in range(W):
+            hammer(newgrid, getstartpoint(newgrid, w))
+            cleanup(newgrid)
+            recurse(newgrid, depth+1)
+            
+            
+
 
 T = int(input())
-for tc in range(T):
+for tc in range(1):
     N, W, H = map(int, input().split())
     grid = [list(map(int, input().split())) for _ in range(H)]
-    result = 999999999999999
+    result = 9999
     recurse(grid)
-    print(f"#{tc+1} {result}")
-    
+    print(result)
