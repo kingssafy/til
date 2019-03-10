@@ -9,5 +9,3 @@ for(let i=0; i<10; i++) {
     let a = 10;
 }
 console.log(i, a, _); undefined, undefined, undefined
-
-```

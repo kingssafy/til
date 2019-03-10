@@ -57,6 +57,7 @@ def maxcharge(a, b):
 
 def getnext(center, direction):
     return tuple(map(sum, zip(center, direction)))
+
 for tc in range(1, T+1):
     M, num_charger = map(int, input().split())
     A_moves = list(map(int, input().split()))

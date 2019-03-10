@@ -77,7 +77,6 @@ def bfs(grid, R, C, K):
                     icopy = applied.copy()
                     icopy.append(x)
                     next.append(icopy)
-
         frontier = next
 
 

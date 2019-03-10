@@ -1,0 +1,6 @@
+- graph: A data structure containing:
+- a set of vertices V,
+- a set of edges E,
+- which are connections between 2vertices.
+- graph G = (V, E)
+- an edge is a pair(v, w) where v, w are in V

@@ -5,7 +5,8 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 "you can find followings at https://stackoverflow.com/questions/12030965/change-the-mapping-of-f5-on-the-basis-of-specific-file-type
-autocmd Filetype c,cpp  nnoremap <buffer> <F5> :update<Bar>execute '!make '.shellescape(expand('%:r'), 1)<CR>
+"autocmd Filetype c,cpp  nnoremap <buffer> <F5> :update<Bar>execute '!make '.shellescape(expand('%:r'), 1)<CR>
+autocmd filetype cpp nnoremap <F5> :update <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' -std=c++14 && ./'.shellescape('%:r')<CR>
 autocmd Filetype python nnoremap <buffer> <F5> :update<Bar>execute '!python '.shellescape(@%, 1)<CR>
 autocmd Filetype java   nnoremap <buffer> <F5> :update<Bar>execute '!javac '.shellescape(@%, 1)<CR>
 autocmd FileType javascript nnoremap <buffer> <F5> :update<Bar>execute '!node '.shellescape(@%, 1)<CR>
@@ -47,8 +48,12 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdtree'
 "Surround
 Plug 'tpope/vim-surround'
-"vim javascript
+"vim javascript Syntax highlighting and improved indentation
 Plug 'pangloss/vim-javascript'
+"vim-htmlpreview
+Plug 'greyblake/vim-preview'
+"indent guideline
+Plug 'Yggdroot/indentLine'
 "Initialize plugin system
 call plug#end()
 "apply colorscheme
@@ -64,7 +69,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0 
-
+let g:syntastic_cpp_compiler_options = "-std=c++11 -Wall -Wextra -Wpedantic"
 " Basic Setting that we need
 "syntax on
 set number
@@ -77,7 +82,7 @@ set shiftwidth=4
 set tabstop=4
 "set softtabstop=4
 "https://stackoverflow.com/questions/1562633/setting-vim-whitespace-preferences-by-filetype
-autocmd Filetype html setlocal ts=2 sw=2 expandtab
+autocmd Filetype html,css setlocal ts=2 sw=2 expandtab
 autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
 "autocmd Filetype javascript setlocal ts=4 sw=4 sts=0 noexpandtab
 autocmd Filetype python setlocal ts=4 sw=4 expandtab
@@ -125,4 +130,5 @@ let g:javascript_plugin_flow = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 

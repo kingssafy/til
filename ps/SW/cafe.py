@@ -32,7 +32,7 @@ def cafe(grid, start):
             now = complex[0]
             di = complex[2]
             for idx, direction in enumerate(directions[di:di+2]):
-                ate = complex[1].copy() #copy T^T
+                ate = complex[1][:] #copy T^T
                 jump = getnext(now, direction) 
                 if isvalid(grid, jump) and isnodouble(grid, jump, ate):
                     ate.append(grid[jump[0]][jump[1]])
@@ -40,7 +40,7 @@ def cafe(grid, start):
                 elif jump == start:
                     global maximum
                     if len(ate)  > maximum:
-                        maximum = len(ate) 
+                        maximum = len(ate)
         frontier = next
 
 for tc in range(int(input())):
