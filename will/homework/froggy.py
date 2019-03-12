@@ -8,24 +8,25 @@ count = 0
 length = len(lotus)
 last = lotus[-1]
 
-def bs_up(s, e, d):
-    m = -1
-    sol = -1
-    while s <= e:
-        m = (s+e)//2
-        if lotus[m] < d:
-            sol = m +1
-            s = sol
-        else:
-            e = m-1;
-    return sol;
+def ok(array, i, target):
+    return array[i] >= target
+
+def bs(array, target):
+    x = -1
+    b = len(array)
+    while b >= 1:
+        while x+b < len(array) and (not ok(array, x+b, target)):
+            x += b
+        b //= 2
+    return x +1
 
 for first in range(length-2):
     f = lotus[first]
     for second in range(first+1, length-1):
         s = lotus[second]
         jump = s-f
-        count += bs_up(second, length-1, s+2*jump+1) - bs_up(second, length-1,s+jump)
+        count += bs(lotus, s+2*jump+1) - bs(lotus, s+jump)
+
 
 print(count)
 
