@@ -1,0 +1,31 @@
+#include <iostream>
+#include <cstdio>
+#include <fstream>
+
+using namespace std;
+
+int main() {
+    ifstream cin("harvest_input.txt");
+    int grid[50][50] = {{0}};
+    int T, N;
+    cin >> T;
+    cout << T << endl;
+    for (int tc = 0; tc < 1; tc++) {
+        cin >> N;
+        for (int r = 0; r < N; r++) {
+            for (int c = 0; c < N; c++) {
+                scanf("%d", &grid[r][c]);
+            }
+        }
+
+        for (int r = 0; r < N; r++) {
+            for (int c = 0; c < N; c++) {
+                cout << grid[r][c] << " ";
+            }
+            cout << endl;
+        }
+
+    }
+
+    return 0;
+}
