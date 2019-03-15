@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}
+  edit.html
+{% endblock title %}
+
+{% block body %}
+<form action="/boards/update/{{ article.pk }}/" method="POST">
+  {% csrf_token %}
+  <div>
+    <input type="text" name="title" value="{{ article.title }}"><br>
+    <input type="text" name="content" value="{{ article.content }}"><br>
+    <input type="submit" value="update">
+  </div>
+</form>
+
+{% endblock body %}

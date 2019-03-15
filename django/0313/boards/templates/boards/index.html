@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}INDEX TITLE{% endblock title %}
+{% block body %}
+INDEX
+HELLO
+<a href="/boards/new/">create one</a>
+<ul>
+    {% for article in articles %}
+    <li>
+        <ul>
+            <li style="list-style-type: none;
+"><a href="/boards/detail/{{ article.pk }}">{{ article.title }}</a></li>
+            <li style="list-style-type: none;
+"><a href="/boards/edit/{{ article.pk }}">edit</a></li>
+            <li style="list-style-type: none;
+"><a href="/boards/delete/{{ article.pk }}">delete</a></li>
+        </ul>
+    </li>
+    {% endfor articles %}
+</ul>
+{% endblock body %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}
+detail title
+{% endblock title %}
+{% block body %}
+<h2>detail.html</h2>
+<ul>
+  <li>{{ board.title  }}</li>
+  <li>{{ board.content }}</li>
+  <li>created_at: {{ board.created_at }}</li>
+  <li>updated_at: {{ board.updated_at }}</li>
+</ul>
+{% endblock body %}

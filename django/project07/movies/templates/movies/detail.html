@@ -1,0 +1,54 @@
+{% extends 'movies/base.html' %}
+{% block title %}
+detailpage
+{% endblock title %}
+{% block body %}
+<h1>Detail Pages</h1>
+<ul>
+    <li>title: {{ movie.title }}</li>
+    <li>genre: {{ movie.genre }}</li>
+    <li>audience: {{ movie.audience }}</li>
+    <li>img: <img src="{{ movie.poster_url }}" alt="{{ movie.title }}"></li>
+    <li>description: {{ movie.description }}</li>
+    <hr>
+    <ul>
+        {% for score in scores %}
+
+        <div class="container">
+            <ul>
+                <li>content: {{ score.content }}</li>
+                <li>socre: {{ score.score }}
+                    <li>
+                        <form action="{% url 'movies:delete_score' movie.pk score.pk %}" method="POST" style="display: inline;">
+                            {% csrf_token %}
+                            <input class="btn btn-secondary" type="submit" value="delete">    
+                        </form>
+                    </li>
+            </ul>
+        </div>
+        {% empty %}
+        <li>no score added yet.</li>
+        {% endfor %}
+    </ul>
+
+
+    <hr>
+    <h3>rate this movie</h3>
+    <form action="{% url 'movies:create_score' movie.pk %}" method="POST">
+        {% csrf_token %}
+        <input type="text" name="content" placeholder="comment here">
+        <input type="number" name="score" min="0" max="10" step="0.5">
+        <input type="submit" value="submit">
+    </form>
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <a href="{% url 'movies:index' %}" class="btn btn-secondary">lists</a>
+        <a href="#" class="btn btn-secondary">Edit</a>
+        <form action="{% url 'movies:movie_delete' movie.pk %}" method="POST">
+            {% csrf_token %}
+            <input type="submit" class="btn btn-secondary" value="Delete">
+        </form>
+    </div>
+
+</ul>
+
+{% endblock body %}

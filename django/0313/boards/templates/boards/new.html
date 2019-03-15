@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}NEW TITLE{% endblock title %}
+{% block body %}
+<h2>NEW.html</h2>
+<form action="/boards/create/" method="POST">
+  {% csrf_token %}
+  <div>
+    <input type="text" name="title" placeholder="title here"><br>
+    <input type="text" name="content" placeholder="content here"><br>
+    <input type="submit" value="submit">
+  </div>
+</form>
+{% endblock body %}
