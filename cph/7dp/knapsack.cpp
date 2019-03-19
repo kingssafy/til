@@ -3,7 +3,7 @@ using namespace std;
 
 int main() {
     bool possible[5][13] = {{false}};
-    int weights[4] = {1, 3, 3, 5}; 
+    int weights[4] = {1, 3, 3, 2}; 
     int k = 4;
     int n = 0;
     for (int x : weights) {
