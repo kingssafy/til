@@ -41,6 +41,7 @@ for tc in range(T):
     for row in grid:
         if row != "0"*M and row not in raws:
             raws.append(row)
+    print(raws)
     binaries = []
     for raw in raws:
         cypher = ""
@@ -51,23 +52,27 @@ for tc in range(T):
     for binary in binaries:
         temp = ""
         tempa = []
+        step =0
+        print(binary)
         for c in binary[::-1]:
             if not temp and c == "0":
                 pass
             else:
                 temp += c
-                if len(temp) % 7 == 0 :
+                if len(temp) % 7 == 0 and not step:
                     step = len(temp)//7
                     val = temp[::-1][::step]
                     if val in code:
                         value = code[val] 
                         tempa.append(value)
+                        print(temp, val)
                         temp =""
                         if len(tempa) == 8:
                             tempa.reverse()
                             if tempa not in items:
                                 items.append(tempa[:])
                             tempa.clear()
+                
     final = 0
     for hack in items:
         result = 0
