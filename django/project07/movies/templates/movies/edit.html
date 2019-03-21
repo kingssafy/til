@@ -1,0 +1,22 @@
+{% extends 'movies/base.html' %}
+{% block body %}
+<hr>
+<form method="POST">
+  {% csrf_token %}
+  <input type="text" name="title" value="{{ movie.title }}">
+
+  <input type="number" name="audience" value="{{ movie.audience }}">
+
+  <textarea id="" name="poster_url" cols="30" rows="10">{{ movie.poster_url }}</textarea>
+
+  <textarea id="" name="description" cols="30" rows="10">{{ movie.description }}</textarea>
+
+  <select id="" name="genre">
+    {% for genre in genres %}
+    <option value="{{ genre.id }}" {% if genre.pk == movie.genre.pk %}selected{% endif %}>{{ genre.name }}</option>
+    {% endfor %}
+  </select>
+
+  <input type="submit" value="SUBMIT">
+</form>
+{% endblock body %}
