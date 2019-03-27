@@ -28,7 +28,7 @@ int main() {
         scanf("%d", &temp);
             a = lowerbound(arr, temp);
         if (a != -1) {
-            printf("%d", a+1);
+            printf("%d\n", a+1);
         } else {
             printf("0\n");
         }

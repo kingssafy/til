@@ -1,6 +1,6 @@
 #include <cstdio>
 using namespace std;
-const int MAX = 50000;
+const int MAX = 200001;
 int N, T, temp, a, b;
 int arr[MAX] = {};
 int lowerbound(int arr[], int target, bool mode=false) {
@@ -28,7 +28,7 @@ int main() {
         scanf("%d", &temp);
             a = lowerbound(arr, temp);
         if (a != -1) {
-            printf("%d", a+1);
+            printf("%d\n", lowerbound(arr, temp+1, true)-a);
         } else {
             printf("0\n");
         }

@@ -1,7 +1,13 @@
+from heapq import heappush, heappop, heapify
 N = int(input())
+result = 0;
 array = list(map(int, input().split()))
-array.sort();
-result = array[-1]
-for i in range(N-1):
-    result += (N-i-1)* array[i]
+heapify(array)
+while len(array) > 1:
+    b = heappop(array)
+    c = heappop(array)
+    temp = b+c
+    heappush(array, temp)
+    result += temp
+
 print(result)
