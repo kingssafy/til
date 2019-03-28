@@ -3,17 +3,19 @@
 
 using namespace std;
 bool column[10] = {};
-bool diag1[10] = {};
-bool diag2[10] = {};
+bool diag1[20] = {};
+bool diag2[20] = {};
+int ret = 0;
 
-
-int nqueens(int k, int N) {
-    if (K == N) {
-
+void nqueens(int k, int N) {
+    if (k == N) {
+        ret += 1;
     }  else {
         for (int i = 0; i < N; i++) {
-            if (!column[i] && !diag1[k-i+1] && !diag2(N-1+i-k)) {
-
+            if (!column[i] && !diag1[N-k+i] && !diag2[i+k]) {
+                column[i] = diag1[N-k+i] = diag2[i+k] = true;   
+                nqueens(k+1, N);
+                column[i] = diag1[N-k+i] = diag2[i+k] = false;   
             }
         } 
     }
@@ -24,6 +26,7 @@ int nqueens(int k, int N) {
 int main() {
     int N;
     scanf("%d", &N);
-    nqueens(N);
+    nqueens(0, N);
+    printf("%d", ret);
     return 0;
 }
