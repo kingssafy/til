@@ -10,25 +10,31 @@ bool check(int arr[]) {
     for (int i = 0; i < N; i++) {
         if (before == arr[i]) {
             count ++;
-        } else if (before < arr[i]) {
+        } else if (before+1 == arr[i]) {
             if (count >= X) {
-                count = 0;
+                count = 1;
                 before = arr[i];
             } else {
-                //TODO false!
+                return false;
             }
         } else {
-            int checker = before -1;
-            int downcount = 0;
+            if (i+X > N) return false;  //gives me pass ;;
+            int checker = before - 1;
             for (int j = 0; j < X; j++) {
-               //TODO when goes down  
+                if (arr[i+j] != checker) {
+                    return false;
+                }
             }
+            count = -X+1;  // -x+1 ->30 48
+            before = arr[i];
         } 
     } 
+    return true;
 }
 
 
 int main() {
+    freopen("runway_input.txt", "r", stdin);
     int T;
     scanf("%d", &T);
     for (int tc = 0; tc < T; tc++) {
@@ -36,7 +42,19 @@ int main() {
         for (int y = 0; y < N; y++)
             for (int x = 0; x <N; x++)
                 scanf("%d", &grid[y][x]);
-
+        
+        int result = 0;
+        for (int y = 0; y < N; y++) {
+            result += check(grid[y]);
+        }
+        for (int y = 0; y < N; y++) {
+            int arr[20] = {};
+            for (int x = 0; x < N; x++) {
+                arr[x] = grid[x][y];
+            }
+            result += check(arr);
+        }
+        printf("#%d %d\n", tc+1, result);
 
     }
     return 0;
