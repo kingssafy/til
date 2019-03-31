@@ -1,0 +1,16 @@
+import sys
+sys.stdin = open("papers_input.txt");
+
+N = int(input())
+papers = [];
+for _ in range(N):
+    papers.append(tuple(map(int, input().split())));
+papers.sort();
+array = [1]*N;
+maximum = 0;
+for i in range(N):
+    for k in range(0, i):
+        if (papers[k][0] <= papers[i][0] and papers[k][1] <= papers[i][1])\
+            or (papers[k][1] <= papers[i][0] and papers[k][0] <= papers[i][1]):
+            array[i] = max(array[i], array[k]+1);
+print(max(array));
