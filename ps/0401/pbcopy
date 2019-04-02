@@ -10,18 +10,17 @@ def djik():
     processed = [[0 for _ in range(N)] for _ in range(N)]
     distance = [[10000000 for _ in range(N)] for _ in range(N)]
     distance[0][0] = 0
+    processed[0][0] = True
     while heap:
-        throw, y, x = heappop(heap)
-        if processed[y][x]: continue;
-        processed[y][x] = True
+        throw, x, y = heappop(heap)
         for i in range(4):
             ny = y+dy[i]
             nx = x+dx[i]
-            if (min(ny,nx)>= 0 and max(ny, nx) < N):
+            if (min(ny,nx)>= 0 and max(ny, nx) < N and not processed[ny][nx]):
+                processed[y][x] = True
                 distance[ny][nx] = min(distance[ny][nx], distance[y][x]+max(0, grid[ny][nx]-grid[y][x])+1)
-                if ny==N-1 and nx == N-1:
-                    return distance[N-1][N-1]
                 heappush(heap, (distance[ny][nx], ny, nx))
+
     return distance[N-1][N-1]
 
 
