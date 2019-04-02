@@ -11,6 +11,7 @@ int dy[4] = {1, -1, 0, 0};
 atom atoms[MAX][MAX] = {};
 
 int main() {
+    freopen("atom.txt", "r", stdin);
     int T, N;
     scanf("%d", &T);
     for (int tc = 0; tc < T; tc++) {
