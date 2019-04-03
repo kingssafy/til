@@ -23,4 +23,4 @@ for tc in range(T):
         for j in range(N):
             for k in range(N):
                 distance[i][j] = min(distance[i][j], distance[i][k] + distance[k][j])
-    print(f"#{tc+1}", min(sum(row) for row in distance))
+    print("#{} {}".format(tc+1, min(sum(row) for row in distance)))

@@ -8,7 +8,7 @@ def minimum(a, b):
     while (front < len(Q)):
         a = Q[front][0]
         n = Q[front][1]
-        front += 1;
+        front += 1
         if a == b:
             return n
         if a+1 <= 1000000 and not visit[a+1]: 

@@ -1,6 +1,6 @@
 import sys
 sys.stdin = open("5251_input.txt")
-from heapq import heapify, heappush, heappop
+from heapq import heappush, heappop
 T = int(input())
 
 for tc in range(T):
