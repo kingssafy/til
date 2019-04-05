@@ -1,5 +1,4 @@
 #include <iostream>
-#include <unordered_set>
 using namespace std;
 const int MAXN = 20, MAXP = 2000;
 int grid[101][101] = {};
