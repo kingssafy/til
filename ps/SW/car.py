@@ -1,7 +1,10 @@
 import sys
 sys.stdin = open("car_input.txt")
+
+
+
 from heapq import heappush, heapify, heappop
-2
+
 MAXT = 50000
 
 T = int(input())
