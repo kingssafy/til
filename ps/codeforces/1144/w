@@ -1,0 +1,47 @@
+#include <cstdio>
+using namespace std;
+int grid[2*100*1000+1][2*100*1000+1] = {};
+int colors[2*100*1000+1] = {};
+int edgel[2*100*1000+1] = {};
+int edger[2*100*1000+1] = {};
+int n, m;
+bool bipartite;
+
+void dfs(int v, int c) {
+    if (!colors[v]) {
+        colors[v] = c;
+        for (int i = 0; i < n; i++) {
+            if (grid[v][i] == 1) {
+                dfs(i, c%2+1);
+            }
+        }
+    } else {
+        if(colors[v] != c)
+            bipartite = false;        
+    }
+}
+
+
+int main() {
+    int y, x;
+    scanf("%d %d", &n, &m);
+    for (int i = 0; i < m; i++) {
+        scanf("%d %d", &y, &x);
+        y--;x--;
+        grid[y][x] = 1;
+        grid[x][y] = 1;
+        edgel[i] = y;
+        edger[i] = x;
+    }
+    bipartite = true;
+    dfs(0,1);
+    if (!bipartite) {
+        printf("NO");
+    }
+    else {
+        printf("YES\n");
+        for (int i = 0; i < n-1; i++)
+            printf("%d", colors[edgel[i]] < colors[edger[i]]);
+    }
+    return 0;
+}
